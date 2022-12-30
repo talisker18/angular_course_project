@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success">New Recipe</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <!--property binding by using @Input in recipe-item.component.ts-->
+        <app-recipe-item 
+        *ngFor="let currentRecipe of recipes"
+        [recipe]="currentRecipe"
+        (recipeSelected)="onRecipeSelected(currentRecipe)"
+        ></app-recipe-item>
+    </div>
+</div>
