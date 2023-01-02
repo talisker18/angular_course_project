@@ -13,20 +13,25 @@
         <div class="btn-group" appDropdown> <!--using custom attribute directive. we could also use it on the next button? (see also header.component.html). Answer: we need to add the directive in a container like div or li. Button is not a container-->
             <button type="button" class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></button>
             <ul class="dropdown-menu">
-                <li><a href="#">Add to Shopping List</a></li>
+                <li><a (click)="onAddToShoppingList()" style="cursor:pointer;">Add to Shopping List</a></li>
                 <li><a href="#">Edit Recipe</a></li>
                 <li><a href="#">Delete Recipe</a></li>
             </ul>
         </div>
     </div>
 </div>
+<br>
 <div class="row">
     <div class="col-xs-12">
         Description: {{recipe.description}}
     </div>
 </div>
+<br>
 <div class="row">
     <div class="col-xs-12">
-        Ingredients: 
+        Ingredients:
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let currentIngredient of recipe.ingredients">{{currentIngredient.name}} - {{currentIngredient.amount}}</li> <!--ngFor is always on the element we want to replicate!!!-->
+        </ul>
     </div>
 </div>
